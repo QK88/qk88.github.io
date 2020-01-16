@@ -6,24 +6,24 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: "姚信的技术专栏"
+title: "陌语的技术专栏"
 brief-intro: "System Research"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://XinYao1994.github.io" # the base hostname & protocol for your site
+url: "https://mystar-x.github.io" # the base hostname & protocol for your site
 
 permalink: /:year/:month/:day/:title/
 
 # other links
 twitter_username: #gaohaoyang126
 facebook_username: #gaohaoyang.water
-github_username:  XinYao1994
-email: u3004330@connect.hku.hk
+github_username:  Mystar-x
+email: dark_light2359@126.com
 weibo_username: 
 zhihu_username: 
-linkedIn_username: xinyao1994
+linkedIn_username: 
 dribbble_username:
 
-description_footer: 来自姚信的个人专栏！
+description_footer: 来自陌语的个人专栏！
 
 # comments
 # two ways to comment, only choose one, and use your own short name

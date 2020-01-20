@@ -50,7 +50,7 @@ SSLError(MaxRetryError('HTTPSConnectionPool(host=\'repo.anaconda.com\', port=443
 
 **搜索解决方案，说可以把源的`https`改成`http`**，即：
 
-找到C:\Users\x\.condarc，用Notepad++编辑，把原来的`https`换成了`http`
+找到C:\Users\\(你的用户名)\\.condarc，用Notepad++编辑，把原来的`https`换成了`http`
 
 ![图1]({{sit.url}}/img/image-20200120191154454.png)
 

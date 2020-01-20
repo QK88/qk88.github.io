@@ -52,13 +52,13 @@ SSLError(MaxRetryError('HTTPSConnectionPool(host=\'repo.anaconda.com\', port=443
 
 找到C:\Users\x\.condarc，用Notepad++编辑，把原来的`https`换成了`http`
 
-![图1](https://github.com/Mystar-x/mystar-x.github.io/blob/master/img/image-20200120191154454.png)
+![图1]({{sit.baseurl}}/img/image-20200120191154454.png)
 
 
 
 于是不再报错，然而在下载packages的时候，又碰到如下错误：
 
-![图2](https://github.com/Mystar-x/mystar-x.github.io/blob/master/img/image-20200120160453933.png)
+![图2]({{sit.baseurl}}/img/image-20200120160453933.png)
 
 
 

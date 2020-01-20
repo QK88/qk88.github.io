@@ -6,9 +6,8 @@ date:       2020-01-20
 author:     MoYu
 catalog: true
 tags:
-    - Anaconda Python
-
-
+    - Anaconda 
+	-Python
 ---
 
 <!-- MarkdownTOC -->
@@ -51,13 +50,13 @@ SSLError(MaxRetryError('HTTPSConnectionPool(host=\'repo.anaconda.com\', port=443
 
 找到C:\Users\x\.condarc，用Notepad++编辑，把原来的`https`换成了`http`
 
-![image-20200120191154454](C:\Users\x\AppData\Roaming\Typora\typora-user-images\image-20200120191154454.png)
+![](D:\mystar-x_Blog\mystar-x.github.io\img\image-20200120191154454.png)
 
 
 
 于是不再报错，然而在下载packages的时候，又碰到如下错误：
 
-![image-20200120160453933](C:\Users\x\AppData\Roaming\Typora\typora-user-images\image-20200120160453933.png)
+![](D:\mystar-x_Blog\mystar-x.github.io\img\image-20200120160453933.png)
 
 
 

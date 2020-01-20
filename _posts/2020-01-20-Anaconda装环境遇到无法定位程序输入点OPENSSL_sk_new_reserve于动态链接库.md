@@ -7,7 +7,9 @@ author:     MoYu
 catalog: true
 tags:
     - Anaconda
-	- Python
+    - Python
+
+
 ---
 
 <!-- MarkdownTOC -->

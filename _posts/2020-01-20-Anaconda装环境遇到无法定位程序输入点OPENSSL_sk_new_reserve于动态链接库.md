@@ -52,7 +52,7 @@ SSLError(MaxRetryError('HTTPSConnectionPool(host=\'repo.anaconda.com\', port=443
 
 找到C:\Users\x\.condarc，用Notepad++编辑，把原来的`https`换成了`http`
 
-![图1](https://raw.githubusercontent.com/Mystar-x/mystar-x.github.io/blob/master/img/image-20200120191154454.png)
+![图1](https://github.com/Mystar-x/mystar-x.github.io/blob/master/img/image-20200120191154454.png)
 
 
 

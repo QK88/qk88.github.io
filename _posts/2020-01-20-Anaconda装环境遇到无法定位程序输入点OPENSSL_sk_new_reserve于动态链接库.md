@@ -59,7 +59,7 @@ SSLError(MaxRetryError('HTTPSConnectionPool(host=\'repo.anaconda.com\', port=443
 
 于是不再报错，然而在下载packages的时候，又碰到如下错误：
 
-![图1]({{sit.url}}/img/image-20200120191154454.png)
+![图1]({{sit.url}}/img/image-20200120160453933.png)
 
 
 

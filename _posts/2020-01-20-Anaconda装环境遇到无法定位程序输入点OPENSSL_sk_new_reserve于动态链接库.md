@@ -58,7 +58,7 @@ SSLError(MaxRetryError('HTTPSConnectionPool(host=\'repo.anaconda.com\', port=443
 
 于是不再报错，然而在下载packages的时候，又碰到如下错误：
 
-![图2](https://raw.githubusercontent.com/Mystar-x/mystar-x.github.io/blob/master/img/image-20200120160453933.png)
+![图2](https://github.com/Mystar-x/mystar-x.github.io/blob/master/img/image-20200120160453933.png)
 
 
 

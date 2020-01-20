@@ -6,8 +6,8 @@ date:       2020-01-20
 author:     MoYu
 catalog: true
 tags:
-    - Anaconda 
-	-Python
+    - Anaconda
+	- Python
 ---
 
 <!-- MarkdownTOC -->

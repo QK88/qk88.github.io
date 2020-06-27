@@ -3,7 +3,7 @@ layout:     post
 title:      Anaconda装环境遇到无法定位程序输入点OPENSSL_sk_new_reserve于动态链接库...
 subtitle:   
 date:       2020-01-20
-author:     MoYu
+author:     QK
 catalog: true
 tags:
     - Anaconda

@@ -1,5 +1,21 @@
-# Content-based image retrieval
+---
+layout:     post
+title:      Content-based image retrieval
+subtitle:   
+date:       2020-05-12
+author:     QK
+catalog: true
+tags:
+    - Sift
+    - Kmeans
+    - unsupervised learning
+    - matlab
 
+---
+
+<!-- MarkdownTOC -->
+
+# Content-based image retrieval
 ### outline
 
 ​	图像检索系统的实现有两种实现方式：基于文本的图像检索，基于内容的图像检索，这里采用的人工智能无监督学习经典算法KMeans算法实现基于内容的方式构建图像检索系统。

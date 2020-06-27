@@ -32,14 +32,14 @@ tags:
 ​	高斯差分空间利用不同尺度的高斯差分核与图像卷积生成，图像的金字塔模型是指，将原始图像不断降阶采样，得到一系列大小不一的图像，由大到小，从下到上构成的塔状模型。
 
 <div align="center">
-<img src="../img\img-content-based image retrieval\高斯金字塔.png" alt="高斯金字塔" style="zoom:50%;"  />
+<img src="{{sit.url}}/img/img-content-based image retrieval\高斯金字塔.png" alt="高斯金字塔" style="zoom:50%;"  />
 </div>
 <center>图1：高斯金字塔模型</center>
 
 ​	说明：高斯金字塔上一组图像的初始图像(底层图像)是由前一组图像的倒数第三张图像隔点采样得到的。相邻两组的同一层尺度为2倍的关系。因此得到高斯差分金字塔首先需要构建高斯金字塔。因为高斯金字塔由层间差分而来因此每组至少组数加一，因为为下一步需要差分来求解求极值点，因此构建的高斯金字塔模型需要比目标DOG组数加2.
 
 <div align="center">
-<img src="../img\img-content-based image retrieval\金字塔组间关系.png" alt="金字塔组间关系" style="zoom:50%"/>
+<img src="{{sit.url}}/img/img-content-based image retrieval\金字塔组间关系.png" alt="金字塔组间关系" style="zoom:50%"/>
 </div>
 
 <center>图2：高斯金字塔组间关系</center>
@@ -60,23 +60,23 @@ do_diffofg(scalespace);%此函数为构建高斯差分金字塔
 
 缺点：极值点并不全都是稳定的特征点，因为某些极值点响应较弱，而且DOG算子会产生较强的边缘响应
 
-<img src="../img\img-content-based image retrieval\空间极值检测.png" style="zoom:50%;" />
+<img src="{{sit.url}}/img/img-content-based image retrieval\空间极值检测.png" style="zoom:50%;" />
 
 #### 关键点定位
 
 ​	以上方法检测到的极值点是离散空间的极值点，以下通过拟合三维二次函数来精确确定关键点的位置和尺度，同时去除低对比度的关键点和不稳定的边缘响应点(因为DOG算子会产生较强的边缘响应)，以增强匹配稳定性、提高抗噪声能力
 
-<img src="../img\img-content-based image retrieval\极值点拟合.png" style="zoom:75%;" />
+<img src="{{sit.url}}/img/img-content-based image retrieval\极值点拟合.png" style="zoom:75%;" />
 
 #### 关键点方向分配
 
 ​	为了使描述符具有旋转不变性，需要利用图像的局部特征为给每一个关键点分配一个基准方向。使用图像梯度的方法求取局部结构的稳定方向。
 
-<img src="C:\Code\Blog\qk88.github.io\img\img-content-based image retrieval\旋转不变性.png" style="zoom:75%;" />
+<img src="{{sit.url}}/img/img-content-based image retrieval\旋转不变性.png" style="zoom:75%;" />
 
 ​	在完成关键点的梯度计算后，使用直方图统计邻域内像素的梯度和方向。梯度直方图将0~360度的方向范围分为若干个柱(bins)，其中每柱10度。直方图的峰值方向代表了关键点的主方向
 
-<img src="C:\Code\Blog\qk88.github.io\img\img-content-based image retrieval\向量分配.png" style="zoom:75%;" />
+<img src="{{sit.url}}/img/img-content-based image retrieval\向量分配.png" style="zoom:75%;" />
 
 ​	方向直方图的峰值则代表了该特征点处邻域梯度的方向，以直方图中最大值作为该关键点的主方向。为了增强匹配的鲁棒性，只保留峰值大于主方向峰值80％的方向作为该关键点的辅方向。因此，对于同一梯度值的多个峰值的关键点位置，在相同位置和尺度将会有多个关键点被创建但方向不同。仅有15％的关键点被赋予多个方向，但可以明显的提高关键点匹配的稳定性。实际编程实现中，就是把该关键点复制成多份关键点，并将方向值分别赋给这些复制后的关键点
 
@@ -111,49 +111,28 @@ SIFT描述子是关键点邻域高斯图像梯度统计结果的一种表示。�
 
 （3）根据新划分的簇，更新“簇中心”
 
-
-
-输入：训练数据集 $D ={x{(1)},x{(2)},...,x^{(m)}},聚类簇数,聚类簇数 k$ ;
-  过程：函数 kMeans(D,k,maxIter)kMeans(D,k,maxIter) .
-
-  1：从 DD 中随机选择 kk 个样本作为初始“簇中心”向量： $ {\mu{(1)},\mu{(2)},...,,\mu^{(k)}} $ :
-
-  2：repeat
-
-  3：  令 Ci=∅(1≤i≤k)Ci=∅(1≤i≤k)
-
-  4：  for j=1,2,...,mj=1,2,...,m do
-
-  5：    计算样本 x(j)x(j) 与各“簇中心”向量 μ(i)(1≤i≤k)μ(i)(1≤i≤k) 的欧式距离
-
-  6：    根据距离最近的“簇中心”向量确定 x(j)x(j) 的簇标记： 
-
-λj=argmini∈{1,2,...,k}djiλj=argmini∈{1,2,...,k}dji
-
-  7：    将样本 x(j)x(j) 划入相应的簇： Cλj=Cλj⋃{x(j)}Cλj=Cλj⋃{x(j)} ;
-
-  8：  end for
-
-  9：  for i=1,2,...,ki=1,2,...,k do
-
-  10：    计算新“簇中心”向量： (μ(i))′=1|Ci|∑x∈Cix(μ(i))′=1|Ci|∑x∈Cix ;
-  
-  11：    if (μ(i))′=μ(i)(μ(i))′=μ(i) then
-  
-  12：      将当前“簇中心”向量 μ(i)μ(i) 更新为 (μ(i))′(μ(i))′
-  
-  13：    else
-  
-  14：      保持当前均值向量不变
-  
-  15：    end if
-  
-  16：  end for
-  
-  17：  else
-  
-  18：until 当前“簇中心”向量均未更新
-
+>**输入**：训练数据集 $ D ={x^{(1)},x^{(2)},...,x^{(m)}},聚类簇数,聚类簇数 k $ ;
+>  **过程**：函数 kMeans(D,k,maxIter)kMeans(D,k,maxIter) .
+>  1：从 DD 中随机选择 kk 个样本作为初始“簇中心”向量： $ {\mu{(1)},\mu{(2)},...,,\mu^{(k)}} $ :
+>  2：**repeat**
+>  3：  令 $C_i=∅(1≤i≤k)Ci=∅(1≤i≤k)$
+>  4：  **for** j=1,2,...,mj=1,2,...,m **do**
+>  5：    计算样本 x(j)x(j) 与各“簇中心”向量 μ(i)(1≤i≤k)μ(i)(1≤i≤k) 的欧式距离
+>  6：    根据距离最近的“簇中心”向量确定 x(j)x(j) 的簇标记： λj=argmini∈{1,2,...,k}djiλj=argmini∈{1,2,...,k}dji
+>  7：    将样本 x(j)x(j) 划入相应的簇： Cλj=Cλj⋃{x(j)}Cλj=Cλj⋃{x(j)} ;
+>  8：  **end for**
+>  9：  **for** i=1,2,...,ki=1,2,...,k **do**
+>  10：    计算新“簇中心”向量： (μ(i))′=1|Ci|∑x∈Cix(μ(i))′=1|Ci|∑x∈Cix ;
+>  11：    **if** (μ(i))′=μ(i)(μ(i))′=μ(i) **then**
+>  12：      将当前“簇中心”向量 μ(i)μ(i) 更新为 (μ(i))′(μ(i))′
+>  13：    **else**
+>  14：      保持当前均值向量不变
+>  15：    **end if**
+>  16：  **end for**
+>  17：  **else**
+>  18：**until** 当前“簇中心”向量均未更新
+>
+>
 
 #### 根据聚类特征分析匹配度
 

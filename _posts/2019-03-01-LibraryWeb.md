@@ -89,6 +89,7 @@ Web：
 - Servlet:与学生操作及管理员操作相对应建立两个包，保存学生操作与管理员操作各个交互实现；
 
 <div align="center">
- <img src="C:\Code\Blog\qk88.github.io\img\javaweb.png" style="zoom:60%;" />
+ <img src="{{sit.url}}/img/javaweb.png" style="zoom:60%;" />
 </div>
+
 
